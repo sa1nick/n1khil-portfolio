@@ -7,6 +7,7 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import ExperienceCard from "./ExperienceCard";
+import { AppWrapper } from "../../wrapper";
 import { client } from "../../client";
 import styled from "styled-components"
 import { motion } from "framer-motion";
@@ -73,13 +74,16 @@ const[experiences,setExperiences] = useState([]);
     return (
       <motion.div       
       whileInView={{ opacity: [0, 1] }}
-      transition={{ duration: 0.5 }}>
+      transition={{ duration: 0.5 }}
+
+      >
       <Container id="experience">
       <Wrapper>
           <Heading type="primary">My <span>Experience</span></Heading>
           <motion.div 
             whileInView={{ opacity: [0, 1] }}
-          transition={{ duration: 0.5, delayChildren: 1 }}
+            transition={{ duration: 0.5, delayChildren: 1 }}
+            className="max-sm:w-full"
           >
                 <TimelineSection>
                     <Timeline>
@@ -109,4 +113,5 @@ const[experiences,setExperiences] = useState([]);
     )
 }
 
-export default Experiences
+
+export default AppWrapper(Experiences,'experiences');

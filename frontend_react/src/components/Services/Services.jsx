@@ -56,14 +56,14 @@ function Services() {
           whileInView={{ opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "tween" }}
-            className="m-8 flex w-[220px] flex-col items-start justify-center"
+            className="m-8 flex w-[230px] flex-col items-start justify-center rounded-[15px] bg-[linear-gradient(294.57deg,_rgba(66,141,255,_0.4)_0%,_rgba(104,_164,_255,_0.4)_100%)] px-2 py-3 text-center [box-shadow:rgba(85,_152,_255,_0.24)_0px_12px_56px] max-sm:w-[350px] max-sm:px-4 max-sm:py-4"
             key={index}
           >
-            <img src={urlFor(service.imgUrl)} alt={service.title} className="h-[180px] w-full rounded-[15px] object-cover" />
-            <h2 className="mt-[20px] text-center text-[1rem] font-extrabold text-[#030303]">
+            <img src={urlFor(service.imgUrl)} alt={service.title} className="h-[150px] w-full rounded-[15px] object-cover max-sm:h-[300px]" />
+            <h2 className="mt-[20px] flex self-center text-center text-[1rem] font-black text-[#fff] max-sm:text-[1.5rem]">
               {service.title}
             </h2>
-            <p className="text-left text-sm/[1.5] leading-normal text-[#C6CBD2]" style={{ marginTop: 10 }}>
+            <p className="text-left text-sm/[1.5] leading-normal text-[#C6CBD2] max-sm:text-lg" style={{ marginTop: 10 }} >
               {service.description}
             </p>
           </motion.div>

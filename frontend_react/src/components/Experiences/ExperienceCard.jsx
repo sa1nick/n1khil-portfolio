@@ -54,7 +54,7 @@ const Card = styled.div`
     @media only screen and (max-width: 768px){
         padding: 10px;
         gap: 8px;
-        width: 300px;
+        width: 390px;
     }
 
     &:hover ${Document}{
@@ -84,6 +84,7 @@ const Image = styled.img`
     margin-top: 4px;
     @media only screen and (max-width: 768px){
         height: 40px;
+        height: 55px;
     }
 `
 
@@ -101,6 +102,8 @@ const Role = styled.div`
     color: ${({ theme }) => theme.text_primary + 99};
     @media only screen and (max-width: 768px){
         font-size: 14px;
+        font-size: 20px;
+
     }
 `
 
@@ -111,6 +114,7 @@ const Company = styled.div`
     color:#f2f3f499;
     @media only screen and (max-width: 768px){
         font-size: 12px;
+        font-size: 18px;
     }
 `
 
@@ -120,7 +124,7 @@ const Date = styled.div`
     ${'' /* color: ${({ theme }) => theme.text_secondary + 80}; */}
     color:#b1b2b380;
     @media only screen and (max-width: 768px){
-        font-size: 10px;
+        font-size: 16px;
     }
 `
 
@@ -143,7 +147,8 @@ const Skill = styled.div`
     font-weight: 400;
     color: ${({ theme }) => theme.text_primary + 99};
     @media only screen and (max-width: 768px){
-        font-size: 12px;
+        ${'' /* font-size: 12px; */}
+        font-size: 17px;
     }
 `
 
@@ -166,7 +171,7 @@ const ExperienceCard = ({ experience }) => {
                 {experience?.skills &&
                     <>
                         <Skills >
-                            <b>Skills:</b>
+                            <b className='max-sm:text-lg'>Skills:</b>
                             <ItemWrapper>
                                 {experience?.skills?.map((skill, index) => (
                                     <Skill key={index}>{experience?.skills?.length-1 !== index  ? `${skill} •` : `${skill} `}</Skill>

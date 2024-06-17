@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Heading from "../Heading";
-import PText from "../PText";
 import {motion} from "framer-motion";
 import {client, urlFor} from "../../client"
 import {AppWrapper} from "../../wrapper/"
@@ -64,23 +63,25 @@ export default AppWrapper(Skills,'skills');
 
 
 function SkillField({skills,field}){
+
     
     return(
-    <div className="mx-3 my-7 flex w-[300px] flex-col items-center justify-center self-baseline text-center">
+    <div className="mx-3 my-7 flex w-[300px] flex-col items-center justify-center self-baseline text-center max-sm:w-[400px]">
         <Heading type="small">{field}</Heading>
             <motion.div
              className="mt-5 flex h-full flex-wrap items-center justify-center" style={{"WebkitBoxPack":"center"}}>
                 {skills.map((skill) =>(
                  <motion.div 
                  whileInView={{ opacity: [0, 1] }}
-              transition={{ duration: 0.5 }} key={skill.name} className="m-3 flex flex-col items-center justify-between self-baseline">
-                    <div className={`flex h-12 w-12 flex-col items-center justify-center rounded-full mb-2`} style={{backgroundColor : skill.bgColor}}>
-                        <img src={urlFor(skill.icon)} alt={skill.name} className="h-2/4 w-2/4"/>
+                 transition={{ duration: 0.5 }} key={skill.name} className="m-3 flex flex-col items-center justify-between self-baseline">
+                  <span data-tooltip={skill.name} data-flow="top" className="">
+                    <div className={`flex h-16 w-16 flex-col items-center justify-center rounded-full mb-4 duration-200 hover:scale-[1.16]  opacity-100  max-sm:h-24  max-sm:w-24`}  style={{backgroundColor : skill.bgColor}}>
+                        <img src={urlFor(skill.icon)} alt={skill.name} className="h-2/4 w-2/4 max-sm:h-2/4 max-sm:w-2/4" />
                     </div>
                     <div className="flex w-16 flex-wrap justify-center">
-                        <PText>{skill.name}</PText> 
-
+                    {/* <PText>{skill.name}</PText> */}
                     </div>
+                    </span>
                  </motion.div>
                 ))}
             </motion.div>

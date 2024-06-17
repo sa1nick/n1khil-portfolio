@@ -42,20 +42,21 @@ const Work = () => {
     // const filterItem = "m-2 cursor-pointer rounded-lg bg-transparent border-2 border-[#397ffd] px-4 py-2 font-extrabold text-[#fff] [transition:all_0.3s_ease] hover:text-[#fff] [@media_screen_and(min-width:2000px)]:rounded-[0.85rem] [@media_screen_and(min-width:2000px)]:px-8 [@media_screen_and(min-width:2000px)]:py-4 flex items-center justify-center "
     // const pText = "text-[0.8rem] text-left leading-normal [@media_screen_and(min-width:2000px)]:text-[1.75rem]"
     
-    const itemActive = "m-2 cursor-pointer rounded-lg border-2 border-[#397ffd] px-4 py-2 font-extrabold text-[#fff] [transition:all_0.3s_ease] hover:text-[#fff] [@media_screen_and(min-width:2000px)]:rounded-[0.85rem] [@media_screen_and(min-width:2000px)]:px-8 [@media_screen_and(min-width:2000px)]:py-4 flex items-center justify-center text-[0.8rem] text-left leading-normal [@media_screen_and(min-width:2000px)]:text-[1.75rem]";
+    const itemActive = "m-2 cursor-pointer rounded-lg border-2 border-[#397ffd] px-4 py-2 font-extrabold text-[#fff] [transition:all_0.3s_ease] hover:text-[#fff] [@media_screen_and(min-width:2000px)]:rounded-[0.85rem] [@media_screen_and(min-width:2000px)]:px-8 [@media_screen_and(min-width:2000px)]:py-4 flex items-center justify-center text-[0.8rem] text-left leading-normal [@media_screen_and(min-width:2000px)]:text-[1.75rem] max-sm:text-lg";
      
     return (
-       <div className="py-12">
+       <div className="py-12 max-sm:w-full">
        <motion.div
         whileInView={{ opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
         >
         <Heading type="primary">My <span>Projects</span></Heading>
-        <div className='mx-[0] mb-7 mt-8 flex flex-row flex-wrap items-center justify-center'>
+        <div className='mx-[0] mb-7 mt-8 flex flex-row flex-wrap items-center justify-center max-sm:flex max-sm:flex-wrap'>
         {[ 'React JS','JavaScript','Rest APIs', 'All'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
+            // onMouseEnter={()=> alert("Clicked")}
             className= {`${itemActive} ${activeFilter === item ? 'text-white bg-[#397ffd]' : 'bg-transparent'}`}
           >
             {item}
@@ -67,11 +68,11 @@ const Work = () => {
       <motion.div 
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.7 }}
-        className="flex w-[670px] flex-wrap items-center justify-center"
+        className="max-sm:flex-end max-sm:justify flex w-[670px] flex-wrap items-center justify-center max-sm:flex max-sm:w-[470px] max-sm:items-center max-sm:justify-center"
       >
         {filterWork.map((work, index) => (
-          <div className="m-8 flex w-[270px] cursor-pointer flex-col items-center justify-center rounded-lg bg-[#365BB0] p-4 text-[#fff] transition-all duration-[0.3s] ease-linear hover:[box-shadow:0_0_25px_rgba(0,_0,_0,_0.2)] [@media_screen_and(min-width:2000px)]:w-[470px] [@media_screen_and(min-width:2000px)]:rounded-xl [@media_screen_and(min-width:2000px)]:p-5" key={index}>
-            <div className="relative flex h-[210px] w-full items-center justify-center [@media_screen_and(min-width:2000px)]:h-[350px]">
+          <div className="m-8 flex w-[270px] cursor-pointer flex-col items-center justify-center rounded-lg bg-[#365BB0] p-4 text-[#fff] transition-all duration-[0.3s] ease-linear hover:[box-shadow:0_0_25px_rgba(0,_0,_0,_0.2)] max-sm:w-[370px] [@media_screen_and(min-width:2000px)]:w-[470px] [@media_screen_and(min-width:2000px)]:rounded-xl [@media_screen_and(min-width:2000px)]:p-8" key={index}>
+            <div className="relative flex h-[210px] w-full items-center justify-center max-sm:h-[350px] [@media_screen_and(min-width:2000px)]:h-[350px]">
               <img src={urlFor(work.imgUrl)} alt={work.name}  className='h-full w-full rounded-lg object-cover'/>
 
               <motion.div
@@ -107,9 +108,12 @@ const Work = () => {
             </div>
 
             <div className="relative flex w-full flex-col items-center justify-center p-2">
-              <h4 className="mt-4 text-left text-[1rem] font-extrabold leading-normal [@media_screen_and(max-width:450px)]:text-[0.9rem] [@media_screen_and(min-width:2000px)]:mt-12 [@media_screen_and(min-width:2000px)]:text-[2rem]">{work.title}</h4>
-              <p className="text-left text-[0.8rem] leading-normal text-[#d7e5ff] [@media_screen_and(min-width:2000px)]:text-[1.75rem]" style={{ marginTop: 10 }}>
-                {work.description.slice(0,96)+"..."}
+              <h4 className="mt-4 text-left text-[1rem] font-extrabold leading-normal max-sm:text-xl [@media_screen_and(max-width:450px)]:text-[0.9rem] [@media_screen_and(min-width:2000px)]:mt-12 [@media_screen_and(min-width:2000px)]:text-[2rem]">
+              {work.title}
+              </h4>
+              <p className="line-clamp-4 text-left text-[0.8rem] leading-normal text-[#d7e5ff] max-sm:text-[1.15rem] [@media_screen_and(min-width:2000px)]:text-[1.75rem]" style={{ marginTop: 10 }}>
+                {work.description}
+                {/* {work.description.slice(0,96)+"..." */}
               </p>
 
               <div className="absolute -top-[25px] flex items-center justify-center rounded-[10px] bg-[#365BB0] px-4 py-2">
